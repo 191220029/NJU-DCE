@@ -1,0 +1,12 @@
+`define ENTER 8'd13
+`define BACKSPACE 8'd8
+`define BLANK 8'd0
+`define INPUT_FLAG 8'd36
+`define CONCAT_FLAG 8'd62
+`define OUTPUT_FLAG 8'd58
+`define WIDTH 7'd64
+`define HEIGHT 5'd30
+
+`define READ 3'd0
+`define WAIT 3'd1
+`define RESPONSE 3'd2

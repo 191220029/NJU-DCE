@@ -1,0 +1,102 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do exp07_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM {E:/Quartus/ex07/RAM/hex15.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:22:51 on Oct 19,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex07/RAM" E:/Quartus/ex07/RAM/hex15.v 
+# -- Compiling module hex15
+# 
+# Top level modules:
+# 	hex15
+# End time: 21:22:51 on Oct 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM {E:/Quartus/ex07/RAM/RAM2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:22:51 on Oct 19,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex07/RAM" E:/Quartus/ex07/RAM/RAM2.v 
+# -- Compiling module RAM2
+# 
+# Top level modules:
+# 	RAM2
+# End time: 21:22:51 on Oct 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM {E:/Quartus/ex07/RAM/exp07.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:22:53 on Oct 19,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex07/RAM" E:/Quartus/ex07/RAM/exp07.v 
+# -- Compiling module exp07
+# 
+# Top level modules:
+# 	exp07
+# End time: 21:22:53 on Oct 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM {E:/Quartus/ex07/RAM/RAM1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:22:53 on Oct 19,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex07/RAM" E:/Quartus/ex07/RAM/RAM1.v 
+# -- Compiling module RAM1
+# 
+# Top level modules:
+# 	RAM1
+# End time: 21:22:53 on Oct 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM/simulation/modelsim {E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:22:53 on Oct 19,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex07/RAM/simulation/modelsim" E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt 
+# -- Compiling module exp07_vlg_tst
+# 
+# Top level modules:
+# 	exp07_vlg_tst
+# End time: 21:22:53 on Oct 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  exp07_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" exp07_vlg_tst 
+# Start time: 21:22:54 on Oct 19,2020
+# Loading work.exp07_vlg_tst
+# Loading work.exp07
+# Loading work.RAM1
+# Loading work.RAM2
+# Loading altera_mf_ver.altsyncram
+# Loading work.hex15
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) E:/Quartus/ex07/RAM/exp07.v(64): [PCDPC] - Port size (8) does not match connection size (2) for port 'din'. The port definition is at: E:/Quartus/ex07/RAM/RAM1.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /exp07_vlg_tst/i1/r1 File: E:/Quartus/ex07/RAM/RAM1.v
+# ** Warning: (vsim-3015) E:/Quartus/ex07/RAM/exp07.v(66): [PCDPC] - Port size (8) does not match connection size (2) for port 'data'. The port definition is at: E:/Quartus/ex07/RAM/RAM2.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /exp07_vlg_tst/i1/r2 File: E:/Quartus/ex07/RAM/RAM2.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: (vsim-7) Failed to open readmem file ".\init\mem1.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : E:/Quartus/ex07/RAM/RAM1.v(12)
+#    Time: 0 ps  Iteration: 0  Instance: /exp07_vlg_tst/i1/r1
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "./init/ram2.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.1std/590/l64/work/modelsim/eda/sim_lib/altera_mf.v(263)
+#    Time: 0 ps  Iteration: 0  Instance: /exp07_vlg_tst/i1/r2/altsyncram_component/m_default/altsyncram_inst
+# ERROR: cannot read ./init/ram2.mif.
+# ** Warning: (vsim-7) Failed to open readmem file "./init/ram2.ver" in read mode.
+# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/17.1std/590/l64/work/modelsim/eda/sim_lib/altera_mf.v(48962)
+#    Time: 0 ps  Iteration: 0  Instance: /exp07_vlg_tst/i1/r2/altsyncram_component/m_default/altsyncram_inst
+# ** Note: $stop    : E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt(77)
+#    Time: 62 ns  Iteration: 0  Instance: /exp07_vlg_tst
+# Break in Module exp07_vlg_tst at E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt line 77
+# End time: 21:24:07 on Oct 19,2020, Elapsed time: 0:01:13
+# Errors: 0, Warnings: 5

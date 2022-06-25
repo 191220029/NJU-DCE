@@ -1,0 +1,123 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex06/LFSR8/simulation/modelsim
+vclock_1
+Z1 !s110 1601709057
+!i10b 1
+!s100 g@l<nF`E`bfHZgHlEK]NY1
+I5fh:bbHM1>;oRV9U[US=m2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1601703799
+8E:/Quartus/ex06/LFSR8/clock_1.v
+FE:/Quartus/ex06/LFSR8/clock_1.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1601709057.000000
+!s107 E:/Quartus/ex06/LFSR8/clock_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/LFSR8|E:/Quartus/ex06/LFSR8/clock_1.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex06/LFSR8
+Z7 tCvgOpt 0
+vhex15
+R1
+!i10b 1
+!s100 bA0;2LGJdhzj;QmfklXJX2
+IjJ3Rj[L9@cEYGNBIGXNkZ3
+R2
+R0
+w1601708826
+8E:/Quartus/ex06/LFSR8/hex15.v
+FE:/Quartus/ex06/LFSR8/hex15.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/LFSR8/hex15.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/LFSR8|E:/Quartus/ex06/LFSR8/hex15.v|
+!i113 1
+R5
+R6
+R7
+vLFSR8
+R1
+!i10b 1
+!s100 1iEX4:E4]IL_EZ>FLnmUU0
+IWJ4:8oBBi7TliheEVj8C43
+R2
+R0
+w1601708956
+8E:/Quartus/ex06/LFSR8/lfsr8.v
+FE:/Quartus/ex06/LFSR8/lfsr8.v
+L0 6
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/LFSR8/lfsr8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/LFSR8|E:/Quartus/ex06/LFSR8/lfsr8.v|
+!i113 1
+R5
+R6
+R7
+n@l@f@s@r8
+vLFSR8_vlg_tst
+R1
+!i10b 1
+!s100 lN?;PG8ATKOMFMM;o;RaT0
+II2iQ_^QYY?8fbmzTGXzCE0
+R2
+R0
+w1601705741
+8E:/Quartus/ex06/LFSR8/simulation/modelsim/LFSR8.vt
+FE:/Quartus/ex06/LFSR8/simulation/modelsim/LFSR8.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/LFSR8/simulation/modelsim/LFSR8.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/LFSR8/simulation/modelsim|E:/Quartus/ex06/LFSR8/simulation/modelsim/LFSR8.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex06/LFSR8/simulation/modelsim
+R7
+n@l@f@s@r8_vlg_tst
+vRanGen
+R1
+!i10b 1
+!s100 NLIDhRJ4AlmVTNa<;m[MI0
+IHK0TjW5<[04V`?5@2FFe71
+R2
+R0
+w1601708600
+8E:/Quartus/ex06/LFSR8/RanGen.v
+FE:/Quartus/ex06/LFSR8/RanGen.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/LFSR8/RanGen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/LFSR8|E:/Quartus/ex06/LFSR8/RanGen.v|
+!i113 1
+R5
+R6
+R7
+n@ran@gen

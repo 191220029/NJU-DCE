@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex02/priority_encoder83/simulation/modelsim
+vhex15
+Z1 !s110 1600780741
+!i10b 1
+!s100 3zT>W^I99J[`<lA7gMhPQ2
+IJ^`cQ>R?OV2I9E3in=51K1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1600668171
+8E:/Quartus/ex02/priority_encoder83/hex15.v
+FE:/Quartus/ex02/priority_encoder83/hex15.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1600780741.000000
+!s107 E:/Quartus/ex02/priority_encoder83/hex15.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex02/priority_encoder83|E:/Quartus/ex02/priority_encoder83/hex15.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83
+Z7 tCvgOpt 0
+vpri_encoder83
+R1
+!i10b 1
+!s100 XHazW_mgHgcO7T>]<c`KI1
+ImOm4LgMcS^PP54@n9G@MO3
+R2
+R0
+w1600780652
+8E:/Quartus/ex02/priority_encoder83/pri_encoder83.v
+FE:/Quartus/ex02/priority_encoder83/pri_encoder83.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex02/priority_encoder83/pri_encoder83.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex02/priority_encoder83|E:/Quartus/ex02/priority_encoder83/pri_encoder83.v|
+!i113 1
+R5
+R6
+R7
+vpriority_encoder83
+R1
+!i10b 1
+!s100 DD>1X:`dZD9ZaAS:HT<6^0
+IfXm;XAhC^QSlNIILVVAQC0
+R2
+R0
+w1600760587
+8E:/Quartus/ex02/priority_encoder83/priority_encoder83.v
+FE:/Quartus/ex02/priority_encoder83/priority_encoder83.v
+L0 6
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex02/priority_encoder83/priority_encoder83.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex02/priority_encoder83|E:/Quartus/ex02/priority_encoder83/priority_encoder83.v|
+!i113 1
+R5
+R6
+R7
+vpriority_encoder83_vlg_tst
+R1
+!i10b 1
+!s100 Z=A_k6kJe2Nn^7;W2::VD2
+I>k]Ddb46m<7gUW^g^8PQz1
+R2
+R0
+w1600773337
+8E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt
+FE:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex02/priority_encoder83/simulation/modelsim|E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83/simulation/modelsim
+R7

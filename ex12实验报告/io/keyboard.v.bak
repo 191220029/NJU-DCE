@@ -1,0 +1,117 @@
+module keyboard_con(clk, ps2_clk, ps2_data, cur_ascii, valid, pre);
+    input clk, ps2_clk, ps2_data;
+    output [7:0] cur_ascii;
+    output valid;
+    output pre;
+
+    wire [7:0] data;
+    wire ready, overflow;
+    wire [7:0] cur_keycode;
+   // wire press_ctrl, press_shift;
+
+/* 这里的状态的定义 
+in_stack: 某键是否被按下
+ps2_keyboard中可见的data, ready, overflow
+cnt: 总共按键的次数
+getdata_n: 是否要读取数据(严格来说这并不属于当前状态机的状态）
+show_data: 展示的keycode码
+move_next: 当前周期是否读入了新的数据
+*/
+    localparam [7:0] END_MARK = 8'hf0, PRE_MARK = 8'he0, SHIFT = 8'h12, CTRL = 8'h14 , CAPSLOCK = 8'h58;
+    localparam [7:0] NO_SHOW = 8'hff;
+    reg [512:0] c_in_stack = 512'b0, n_in_stack = 512'b0;
+    reg c_end_mark = 0, c_pre_mark = 0, n_end_mark = 0, n_pre_mark = 0;
+    reg [7:0] n_show_data = 8'b0, c_show_data = 8'b0;
+    reg c_move_next = 0, n_move_next = 0;
+    reg c_shift = 0, n_shift = 0, c_ctrl = 0, n_ctrl = 0;
+	 reg cap = 1;
+
+   // reg [7:0] pressed = 8'b0;
+
+    assign pre = n_pre_mark;
+
+/* 现态逻辑 */
+/* ps2_keyboard 可以看作是一个相对独立的状态机 */
+//clrn是负逻辑
+    ps2_keyboard ps2_kbd(.clk(clk), .clrn(1'b1), .ps2_clk(ps2_clk), .ps2_data(ps2_data),
+	 .data(data), .ready(ready), .nextdata_n(~n_move_next), .overflow(overflow));
+
+    always @(posedge clk) begin
+        c_in_stack <= n_in_stack;
+        c_end_mark <= n_end_mark;
+        c_pre_mark <= n_pre_mark;
+        c_show_data <= n_show_data;
+        c_move_next <= n_move_next;
+        c_shift <= n_shift;
+        c_ctrl <= n_ctrl;
+    end
+
+/* 次态逻辑 */
+    always @* begin
+        n_move_next = ready;
+        n_end_mark = c_end_mark;
+        n_pre_mark = c_pre_mark;
+        n_in_stack = c_in_stack;
+        n_show_data = c_show_data;
+        n_shift = c_shift;
+        n_ctrl = c_ctrl;
+
+        //读取数据
+        if(ready) begin
+            case(data)
+            END_MARK: begin
+                n_end_mark = 1'b1;
+            end
+            PRE_MARK: begin
+                n_pre_mark = 1'b1;
+            end
+            default: begin
+                n_show_data = data;
+                if(c_end_mark) begin 
+                    n_in_stack[{c_pre_mark, data}] = 1'b0;
+                    n_show_data = NO_SHOW;
+                    n_end_mark = 1'b0;
+
+                    if(data == SHIFT) begin
+                        n_shift = 1'b0;
+                    end
+                    /*if(data == CTRL) begin
+                        n_ctrl = 1'b0;
+                    end*/
+						  //if(data == CAPSLOCK) begin
+                       // cap = ~cap;
+                   // end
+                end
+                else if(!c_in_stack[{c_pre_mark, data}]) begin
+                    n_in_stack[{c_pre_mark, data}] = 1'b1;
+                    if(data == SHIFT) begin
+                        n_shift = 1'b1;
+                    end
+                    /*if(data == CTRL) begin
+                        n_ctrl = 1'b1;
+                    end*/
+						  /*if(data == CAPSLOCK) begin
+                        cap = ~cap;
+                    end*/
+						  
+                end
+                else begin
+                end
+
+                n_end_mark = 1'b0;
+                n_pre_mark = 1'b0;
+            end
+            endcase
+        end
+        else begin
+            n_show_data = c_show_data;
+        end
+    end
+/* 输出逻辑 */
+/* toAscii 可以看作是输出逻辑的一部分 */
+    assign cur_keycode = n_show_data;
+   // assign press_ctrl = n_ctrl; 
+   // assign press_shift = n_shift;
+    data_2_asc d2a(.prefix(n_pre_mark), .cap(cap), .shift(n_shift), .data(cur_keycode), .ascii(cur_ascii));
+    assign valid = cur_ascii != 8'd0;
+endmodule

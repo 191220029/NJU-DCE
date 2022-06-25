@@ -1,0 +1,77 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do ex04_2_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/2 {E:/Quartus/ex04/2/synDff.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:50:05 on Oct 01,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/2" E:/Quartus/ex04/2/synDff.v 
+# -- Compiling module synDff
+# 
+# Top level modules:
+# 	synDff
+# End time: 14:50:05 on Oct 01,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/2 {E:/Quartus/ex04/2/aynDff.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:50:05 on Oct 01,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/2" E:/Quartus/ex04/2/aynDff.v 
+# -- Compiling module aynDff
+# 
+# Top level modules:
+# 	aynDff
+# End time: 14:50:05 on Oct 01,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/2 {E:/Quartus/ex04/2/ex04_2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:50:06 on Oct 01,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/2" E:/Quartus/ex04/2/ex04_2.v 
+# -- Compiling module ex04_2
+# 
+# Top level modules:
+# 	ex04_2
+# End time: 14:50:06 on Oct 01,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/2/simulation/modelsim {E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 14:50:06 on Oct 01,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/2/simulation/modelsim" E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt 
+# -- Compiling module ex04_2_vlg_tst
+# 
+# Top level modules:
+# 	ex04_2_vlg_tst
+# End time: 14:50:06 on Oct 01,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ex04_2_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ex04_2_vlg_tst 
+# Start time: 14:50:06 on Oct 01,2020
+# Loading work.ex04_2_vlg_tst
+# Loading work.ex04_2
+# Loading work.synDff
+# Loading work.aynDff
+# ** Warning: (vsim-3015) E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt(39): [PCDPC] - Port size (10) does not match connection size (2) for port 'LEDR'. The port definition is at: E:/Quartus/ex04/2/ex04_2.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /ex04_2_vlg_tst/i1 File: E:/Quartus/ex04/2/ex04_2.v
+# ** Warning: (vsim-3015) E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt(39): [PCDPC] - Port size (5) does not match connection size (2) for port 'SW'. The port definition is at: E:/Quartus/ex04/2/ex04_2.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /ex04_2_vlg_tst/i1 File: E:/Quartus/ex04/2/ex04_2.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $stop    : E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt(65)
+#    Time: 26 ns  Iteration: 0  Instance: /ex04_2_vlg_tst
+# Break in Module ex04_2_vlg_tst at E:/Quartus/ex04/2/simulation/modelsim/ex04_2.vt line 65
+# End time: 14:55:13 on Oct 01,2020, Elapsed time: 0:05:07
+# Errors: 0, Warnings: 2

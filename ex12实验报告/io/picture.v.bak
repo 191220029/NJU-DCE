@@ -1,0 +1,306 @@
+`include "macro.v"
+
+module display(clk, in_clk, en, charput, scan_h, scan_v, vga_output, state);
+    input clk, en, in_clk;
+    input [7:0] charput;
+    input [9:0] scan_h;
+    input [9:0] scan_v;
+    input [2:0] state;
+
+    output reg [23:0] vga_output;
+
+    reg [21:0] cmd[15:0];
+    reg [3:0] p_rear;
+    reg [3:0] mv_p_rear;
+    reg [3:0] p_front;
+    wire [1:0] op;
+    wire [6:0] pos_h;
+    wire [4:0] pos_v;
+    wire [7:0] char;
+    assign {op, pos_h, pos_v, char} = cmd[p_front];
+
+    wire [6:0] cursor_h;
+    wire [4:0] cursor_v;
+
+    reg [6:0] c_h;
+    reg [4:0] c_v;
+    wire [4:0] vga_v;
+    wire [6:0] vga_h;
+    wire [3:0] mod9, mod16;
+    wire [7:0] vga_ascii;
+    wire [11:0] vga_line_bit;
+
+    reg w_en;
+    reg [6:0] w_h;
+    reg [4:0] w_v;
+    reg [7:0] w_char;
+
+    reg [6:0] r_h;
+    reg [4:0] r_v;
+    wire [7:0] r_res;
+
+    reg [6:0] n_r_h, n_c_h;
+    reg [4:0] n_r_v, n_c_v;
+    reg [6:0] n_w_h;
+    reg [4:0] n_w_v;
+    reg n_w_en;
+    reg [7:0] n_w_char;
+    reg [3:0] n_p_front;
+    reg [3:0] n_p_rear;
+
+    reg ls_en;
+    reg n_ls_en;
+	reg mv_en;
+	reg n_mv_en;
+
+    assign cursor_h = n_c_h;
+    assign cursor_v = n_c_v;
+
+    reg isbegin;
+
+initial
+begin
+    isbegin = 1'b0;
+    mv_p_rear = 4'd0;
+    p_front = 4'd0;
+    n_p_front = 4'd0;
+    w_en = 1'b0;
+    n_w_en = 1'b0;
+    ls_en = 1'b0;
+    n_ls_en = 1'b0;
+    mv_en = 1'b0;
+    n_mv_en = 1'b0;
+    c_h = 7'd0;
+    n_c_h = 7'd0;
+    c_v = 5'd0;
+    n_c_v = 5'd0;
+end
+    
+	// assign map_v = scan_v[8:4];
+   // assign mod16 = scan_v[3:0];
+	 //assign map_h = scan_h / 9;
+    //assign mod9 = scan_h % 9;
+    showBitAddress scan_address(.v(scan_v), .h(scan_h), .map_v(vga_v), .map_h(vga_h), .mod9(mod9), .mod16(mod16));
+    dpcard chip1(.clock(~clk), .data(n_w_char), .rdaddress({vga_v, vga_h}), .wraddress({n_w_v, n_w_h}), .wren(n_w_en), .q(vga_ascii));
+    dpcard chip2(.clock(~clk), .data(n_w_char), .rdaddress({n_r_v, n_r_h}), .wraddress({n_w_v, n_w_h}), .wren(n_w_en), .q(r_res));
+    charBoard ch_bd(.address({vga_ascii, mod16}), .clock(clk), .q(vga_line_bit));
+
+// BEGIN:   output part
+    wire blink_clk;
+    clkgen #(2) gen_blink_clk(.clkin(~clk), .rst(1'b0), .clken(1'b1), .clkout(blink_clk));
+    always @*
+    begin
+        if(cursor_h == vga_h && cursor_v == vga_v && mod9 == 4'b0) begin
+            vga_output = blink_clk ? 24'hffffff : 24'h000000;
+        end
+        else begin
+            vga_output = vga_line_bit[mod9] ? 24'hffffff : 24'h000000;
+        end
+    end
+// END:     output part
+
+// BEGIN:   control part
+    wire [7:0] line_flag;
+    assign line_flag = state == `READ ? `INPUT_FLAG : `OUTPUT_FLAG;
+
+    always @(posedge in_clk)
+    begin
+        if(!isbegin) begin
+            cmd[mv_p_rear] <= {2'b00, 7'd0, 5'd0, `INPUT_FLAG};
+            cmd[mv_p_rear+4'd1] <= {2'b01, 7'd1, 5'd0, `BLANK};
+            mv_p_rear <= mv_p_rear + 4'd2;
+            isbegin <= 1'b1;
+        end
+        else begin
+            if(en) begin
+                case(charput)
+                `ENTER: begin
+                    if(cursor_v == `HEIGHT - 5'd1) begin
+                        cmd[mv_p_rear] <= {2'b11, 7'd0, 5'd0, `BLANK};
+                        cmd[mv_p_rear+4'd1] <= {2'b00, 7'd0, `HEIGHT - 5'd1, line_flag};
+                        cmd[mv_p_rear+4'd2] <= {2'b01, 7'd1, `HEIGHT - 5'd1, `BLANK};
+                        mv_p_rear <= mv_p_rear + 4'd3;
+                    end
+                    else begin
+                        cmd[mv_p_rear] <= {2'b00, 7'd0, cursor_v + 5'd1, line_flag};
+                        cmd[mv_p_rear+4'd1] <= {2'b01, 7'd1, cursor_v + 5'd1, `BLANK};
+                        mv_p_rear <= mv_p_rear + 4'd2;
+                    end
+                end
+                `BACKSPACE: begin
+                    if(cursor_h <= 7'd1) begin
+                        if(cursor_v != 5'd0) begin
+                            cmd[mv_p_rear] <= {2'b00, 7'd0, cursor_v, `BLANK};
+                            cmd[mv_p_rear+4'd1] <= {2'b01, 7'd70, cursor_v - 5'd1, `BLANK};
+                            cmd[mv_p_rear+4'd2] <= {2'b10, 7'd0, 5'd0, `BLANK};
+                            mv_p_rear <= mv_p_rear + 4'd3;
+                        end
+                    end
+                    else begin
+                        cmd[mv_p_rear] <= {2'b00, cursor_h - 7'd1, cursor_v, `BLANK};
+                        cmd[mv_p_rear+4'd1] <= {2'b01, cursor_h - 7'd1, cursor_v, `BLANK};
+                        mv_p_rear <= mv_p_rear + 4'd2;
+                    end
+                end
+                default: begin
+                    if(cursor_v == `HEIGHT - 5'd1) begin
+                        if(cursor_h > `WIDTH) begin
+                            cmd[mv_p_rear] <= {2'b11, 7'd0, 5'd0, `BLANK};
+                            cmd[mv_p_rear+4'd1] <= {2'b00, 7'd0, `HEIGHT - 5'd1, `CONCAT_FLAG};
+                            cmd[mv_p_rear+4'd2] <= {2'b00, 7'd1, `HEIGHT - 5'd1, charput};
+                            cmd[mv_p_rear+4'd3] <= {2'b01, 7'd2, `HEIGHT - 5'd1, 8'd0};
+                            mv_p_rear <= mv_p_rear + 4'd4;
+                        end
+                        else begin
+                            cmd[mv_p_rear] <= {2'b00, cursor_h, cursor_v, charput};
+                            cmd[mv_p_rear+4'd1] <= {2'b01, cursor_h + 7'd1, cursor_v, `BLANK};
+                            mv_p_rear <= mv_p_rear + 4'd2;
+                        end
+                    end
+                    else begin
+                        if(cursor_h > `WIDTH) begin
+                            cmd[mv_p_rear] <= {2'b00, 7'd0, cursor_v + 5'd1, `CONCAT_FLAG};
+                            cmd[mv_p_rear+4'd1] <= {2'b00, 7'd1, cursor_v + 5'd1, charput};
+                            cmd[mv_p_rear+4'd2] <= {2'b01, 7'd2, cursor_v + 5'd1, `BLANK};
+                            mv_p_rear <= mv_p_rear + 4'd3;
+                        end
+                        else begin
+                            cmd[mv_p_rear] <= {2'b00, cursor_h, cursor_v, charput}; 
+                            cmd[mv_p_rear+4'd1] <= {2'b01, cursor_h + 7'd1, cursor_v, `BLANK};
+                            mv_p_rear <= mv_p_rear + 4'd2;
+                        end
+                    end
+                end
+                endcase
+            end
+        end
+    end
+// END:     control part
+
+// BEGIN:   implement part
+    always @(posedge clk)
+    begin
+        r_h <= n_r_h;
+        r_v <= n_r_v;
+        w_h <= n_w_h;
+        w_v <= n_w_v;
+        w_en <= n_w_en;
+        c_h <= n_c_h;
+        c_v <= n_c_v;
+        w_char <= r_res;
+        p_front <= n_p_front;
+        p_rear <= mv_p_rear;
+        ls_en <= n_ls_en;
+		mv_en <= n_mv_en;
+    end
+
+
+    always @(*)
+    begin
+		n_w_h = w_h;
+		n_w_v = w_v;
+		n_w_en = 1'b0;
+		n_w_char = w_char;
+		n_r_h = r_h;
+		n_r_v = r_v;
+		n_c_h = c_h;
+		n_c_v = c_v;
+		n_p_front = p_front;
+        n_p_rear = p_rear;
+		n_ls_en = 1'b0;
+		n_mv_en = 1'b0;
+        if(p_rear != p_front) begin
+            case(op)
+            2'b00: begin
+                n_w_h = pos_h;
+                n_w_v = pos_v;
+                n_w_en = 1'b1;
+                n_w_char = char;
+                n_p_front = p_front + 4'b1;
+            end
+            2'b01: begin
+                n_c_h = pos_h;
+                n_c_v = pos_v;
+                n_p_front = p_front + 4'b1;
+            end
+            2'b10: begin
+                if(c_h == 7'b0) begin
+                    n_ls_en = 1'b0;
+                    n_p_front = p_front + 4'b1;
+                end
+                else begin
+                    if(!ls_en) begin
+                        n_ls_en = 1'b1;
+						n_r_h = c_h - 7'd1;
+						n_r_v = c_v;
+                    end
+                    else begin
+                        if(w_char != 8'b0) begin
+                            n_ls_en = 1'b0;
+                            n_p_front = p_front + 3'b1;
+                        end
+						else begin
+							n_ls_en = 1'b1;
+							n_c_h = c_h - 7'd1;
+							n_r_h = r_h == 7'd0 ? 7'd0 : r_h - 7'd1;
+						end
+                    end
+                end
+            end
+            2'b11: begin
+				if(!mv_en) begin
+					n_r_h = 0;
+					n_r_v = 1;
+					n_w_h = 7'h7f;
+					n_w_v = 0;
+					n_w_en = 1'b0;
+					n_mv_en = 1'b1;
+				end
+				else begin
+					if(w_v == `HEIGHT - 5'd1) begin
+						if(w_h == `WIDTH) begin
+							n_mv_en = 1'b0;
+							n_w_en = 1'b0;
+                            n_p_front = p_front + 4'b1;
+						end
+						else begin
+							n_mv_en = 1'b1;
+							n_w_en = 1'b1;
+							n_w_char = 8'd0;
+							n_w_h = w_h + 7'd1;
+						end
+					end
+					else begin
+                        n_mv_en = 1'b1;
+                        n_w_en = 1'b1;
+                        n_w_char = w_char;
+						if(w_h == `WIDTH) begin
+							n_w_h = 7'd0;
+							n_w_v = w_v + 5'd1;
+						end
+                        else begin
+                            n_w_h = w_h + 7'd1;
+                            n_w_v = w_v;
+                        end
+                        if(r_h == `WIDTH) begin
+                            n_r_h = 7'd0;
+                            n_r_v = n_r_v == 5'd29 ? r_v : n_r_v + 5'd1;
+                        end
+                        else begin
+                            n_r_h = r_h + 7'd1;
+                            n_r_v = r_v;
+                        end
+					end
+				end
+            end
+            endcase
+        end
+        else begin
+            n_ls_en = 1'b0;
+            n_mv_en = 1'b0;
+            n_w_en = 1'b0;
+        end
+    end
+//END:      implement part
+
+endmodule

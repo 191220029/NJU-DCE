@@ -1,0 +1,551 @@
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+--C1L0 is hex15:comb_4|y~0
+C1L0 = (!A1L0 & (!A1L0 & !A1L0));
+
+
+--B1L0 is pri_encoder83:comb_3|h~0
+B1L0 = ( A1L0 & ( C1L0 ) ) # ( !A1L0 & ( C1L0 & ( (((A1L0) # (A1L0)) # (A1L0)) # (A1L0) ) ) ) # ( A1L0 & ( !C1L0 ) ) # ( !A1L0 & ( !C1L0 ) );
+
+
+--B1L0 is pri_encoder83:comb_3|y~0
+B1L0 = ( A1L0 & ( !A1L0 ) ) # ( !A1L0 & ( !A1L0 & ( (!A1L0 & (((A1L0 & !A1L0)) # (A1L0))) ) ) );
+
+
+--B1L0 is pri_encoder83:comb_3|y~1
+B1L0 = ( !A1L0 & ( (((!A1L0 & !A1L0)) # (A1L0)) # (A1L0) ) );
+
+
+--C1L0 is hex15:comb_4|y~1
+C1L0 = ((!B1L0) # (!C1L0 $ (!B1L0))) # (A1L0);
+
+
+--C1L0 is hex15:comb_4|y~2
+C1L0 = ((!A1L0 & !A1L0)) # (A1L0);
+
+
+--C1L0 is hex15:comb_4|y~3
+C1L0 = ((!C1L0) # ((B1L0) # (B1L0))) # (A1L0);
+
+
+--C1L0 is hex15:comb_4|y[3]~4
+C1L0 = (!A1L0 & ((!A1L0) # ((A1L0) # (A1L0))));
+
+
+--C1L0 is hex15:comb_4|y[3]~5
+C1L0 = ((!A1L0 & (!A1L0 & !C1L0))) # (A1L0);
+
+
+--C1L0 is hex15:comb_4|y~6
+C1L0 = (((!C1L0 & B1L0)) # (B1L0)) # (A1L0);
+
+
+--C1L0 is hex15:comb_4|y~7
+C1L0 = ( C1L0 & ( (((A1L0) # (A1L0)) # (A1L0)) # (A1L0) ) ) # ( !C1L0 & ( A1L0 ) );
+
+
+--C1_y[6] is hex15:comb_4|y[6]
+C1_y[6] = ( A1L0 & ( A1L0 & ( A1L0 ) ) ) # ( !A1L0 & ( A1L0 & ( A1L0 ) ) ) # ( A1L0 & ( !A1L0 & ( A1L0 ) ) ) # ( !A1L0 & ( !A1L0 & ( ((!A1L0 & (!A1L0 & !A1L0))) # (A1L0) ) ) );
+
+
+
+--SW[8] is SW[8]
+SW[8] = INPUT();
+
+
+
+--SW[9] is SW[9]
+SW[9] = INPUT();
+
+
+--A1L0 is LEDR[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(B1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[0] is LEDR[0]
+LEDR[0] = OUTPUT();
+
+
+--A1L0 is LEDR[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[1] is LEDR[1]
+LEDR[1] = OUTPUT();
+
+
+--A1L0 is LEDR[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[2] is LEDR[2]
+LEDR[2] = OUTPUT();
+
+
+--A1L0 is LEDR[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[3] is LEDR[3]
+LEDR[3] = OUTPUT();
+
+
+--A1L0 is LEDR[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[4] is LEDR[4]
+LEDR[4] = OUTPUT();
+
+
+--A1L0 is LEDR[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[5] is LEDR[5]
+LEDR[5] = OUTPUT();
+
+
+--A1L0 is LEDR[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[6] is LEDR[6]
+LEDR[6] = OUTPUT();
+
+
+--A1L0 is LEDR[7]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[7] is LEDR[7]
+LEDR[7] = OUTPUT();
+
+
+--A1L0 is LEDR[8]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[8] is LEDR[8]
+LEDR[8] = OUTPUT();
+
+
+--A1L0 is LEDR[9]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--LEDR[9] is LEDR[9]
+LEDR[9] = OUTPUT();
+
+
+--A1L0 is HEX0[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(!C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[0] is HEX0[0]
+HEX0[0] = OUTPUT();
+
+
+--A1L0 is HEX0[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(!C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[1] is HEX0[1]
+HEX0[1] = OUTPUT();
+
+
+--A1L0 is HEX0[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(!C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[2] is HEX0[2]
+HEX0[2] = OUTPUT();
+
+
+--A1L0 is HEX0[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[3] is HEX0[3]
+HEX0[3] = OUTPUT();
+
+
+--A1L0 is HEX0[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[4] is HEX0[4]
+HEX0[4] = OUTPUT();
+
+
+--A1L0 is HEX0[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(C1L0), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[5] is HEX0[5]
+HEX0[5] = OUTPUT();
+
+
+--A1L0 is HEX0[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(C1_y[6]), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX0[6] is HEX0[6]
+HEX0[6] = OUTPUT();
+
+
+--A1L0 is HEX1[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[0] is HEX1[0]
+HEX1[0] = OUTPUT();
+
+
+--A1L0 is HEX1[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[1] is HEX1[1]
+HEX1[1] = OUTPUT();
+
+
+--A1L0 is HEX1[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[2] is HEX1[2]
+HEX1[2] = OUTPUT();
+
+
+--A1L0 is HEX1[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[3] is HEX1[3]
+HEX1[3] = OUTPUT();
+
+
+--A1L0 is HEX1[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[4] is HEX1[4]
+HEX1[4] = OUTPUT();
+
+
+--A1L0 is HEX1[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[5] is HEX1[5]
+HEX1[5] = OUTPUT();
+
+
+--A1L0 is HEX1[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX1[6] is HEX1[6]
+HEX1[6] = OUTPUT();
+
+
+--A1L0 is HEX2[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[0] is HEX2[0]
+HEX2[0] = OUTPUT();
+
+
+--A1L0 is HEX2[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[1] is HEX2[1]
+HEX2[1] = OUTPUT();
+
+
+--A1L0 is HEX2[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[2] is HEX2[2]
+HEX2[2] = OUTPUT();
+
+
+--A1L0 is HEX2[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[3] is HEX2[3]
+HEX2[3] = OUTPUT();
+
+
+--A1L0 is HEX2[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[4] is HEX2[4]
+HEX2[4] = OUTPUT();
+
+
+--A1L0 is HEX2[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[5] is HEX2[5]
+HEX2[5] = OUTPUT();
+
+
+--A1L0 is HEX2[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX2[6] is HEX2[6]
+HEX2[6] = OUTPUT();
+
+
+--A1L0 is HEX3[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[0] is HEX3[0]
+HEX3[0] = OUTPUT();
+
+
+--A1L0 is HEX3[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[1] is HEX3[1]
+HEX3[1] = OUTPUT();
+
+
+--A1L0 is HEX3[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[2] is HEX3[2]
+HEX3[2] = OUTPUT();
+
+
+--A1L0 is HEX3[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[3] is HEX3[3]
+HEX3[3] = OUTPUT();
+
+
+--A1L0 is HEX3[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[4] is HEX3[4]
+HEX3[4] = OUTPUT();
+
+
+--A1L0 is HEX3[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[5] is HEX3[5]
+HEX3[5] = OUTPUT();
+
+
+--A1L0 is HEX3[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX3[6] is HEX3[6]
+HEX3[6] = OUTPUT();
+
+
+--A1L0 is HEX4[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[0] is HEX4[0]
+HEX4[0] = OUTPUT();
+
+
+--A1L0 is HEX4[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[1] is HEX4[1]
+HEX4[1] = OUTPUT();
+
+
+--A1L0 is HEX4[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[2] is HEX4[2]
+HEX4[2] = OUTPUT();
+
+
+--A1L0 is HEX4[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[3] is HEX4[3]
+HEX4[3] = OUTPUT();
+
+
+--A1L0 is HEX4[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[4] is HEX4[4]
+HEX4[4] = OUTPUT();
+
+
+--A1L0 is HEX4[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[5] is HEX4[5]
+HEX4[5] = OUTPUT();
+
+
+--A1L0 is HEX4[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX4[6] is HEX4[6]
+HEX4[6] = OUTPUT();
+
+
+--A1L0 is HEX5[0]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[0] is HEX5[0]
+HEX5[0] = OUTPUT();
+
+
+--A1L0 is HEX5[1]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[1] is HEX5[1]
+HEX5[1] = OUTPUT();
+
+
+--A1L0 is HEX5[2]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[2] is HEX5[2]
+HEX5[2] = OUTPUT();
+
+
+--A1L0 is HEX5[3]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[3] is HEX5[3]
+HEX5[3] = OUTPUT();
+
+
+--A1L0 is HEX5[4]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[4] is HEX5[4]
+HEX5[4] = OUTPUT();
+
+
+--A1L0 is HEX5[5]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[5] is HEX5[5]
+HEX5[5] = OUTPUT();
+
+
+--A1L0 is HEX5[6]~output
+A1L0 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--HEX5[6] is HEX5[6]
+HEX5[6] = OUTPUT();
+
+
+--A1L0 is SW[0]~input
+A1L0 = INPUT_BUFFER(.I(SW[0]), );
+
+
+--SW[0] is SW[0]
+SW[0] = INPUT();
+
+
+--A1L0 is SW[1]~input
+A1L0 = INPUT_BUFFER(.I(SW[1]), );
+
+
+--SW[1] is SW[1]
+SW[1] = INPUT();
+
+
+--A1L0 is SW[2]~input
+A1L0 = INPUT_BUFFER(.I(SW[2]), );
+
+
+--SW[2] is SW[2]
+SW[2] = INPUT();
+
+
+--A1L0 is SW[3]~input
+A1L0 = INPUT_BUFFER(.I(SW[3]), );
+
+
+--SW[3] is SW[3]
+SW[3] = INPUT();
+
+
+--A1L0 is SW[7]~input
+A1L0 = INPUT_BUFFER(.I(SW[7]), );
+
+
+--SW[7] is SW[7]
+SW[7] = INPUT();
+
+
+--A1L0 is SW[4]~input
+A1L0 = INPUT_BUFFER(.I(SW[4]), );
+
+
+--SW[4] is SW[4]
+SW[4] = INPUT();
+
+
+--A1L0 is SW[5]~input
+A1L0 = INPUT_BUFFER(.I(SW[5]), );
+
+
+--SW[5] is SW[5]
+SW[5] = INPUT();
+
+
+--A1L0 is SW[6]~input
+A1L0 = INPUT_BUFFER(.I(SW[6]), );
+
+
+--SW[6] is SW[6]
+SW[6] = INPUT();
+
+

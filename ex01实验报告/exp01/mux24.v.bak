@@ -1,0 +1,15 @@
+module mux24(X, Y, F);
+	input [7:0] X;
+	input [1:0] Y;
+	output reg [1:0]F;
+	
+	always @(*)
+	begin
+		case (Y)
+			0: F[0]=X[0]; F[1]=X[1];
+			1: F[0]=X[2]; F[1]=X[3];
+			2: F[0]=X[4]; F[1]=X[5];
+			3: F[0]=X[6]; F[1]=X[7];
+			default: F = 2'b00;
+	end
+endmodule 

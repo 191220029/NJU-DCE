@@ -1,0 +1,67 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do ex_4_1_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/1 {E:/Quartus/ex04/1/nonblocing_assign.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:55:47 on Sep 28,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/1" E:/Quartus/ex04/1/nonblocing_assign.v 
+# -- Compiling module nonblocing_assign
+# 
+# Top level modules:
+# 	nonblocing_assign
+# End time: 08:55:48 on Sep 28,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/1 {E:/Quartus/ex04/1/ex_4_1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:55:48 on Sep 28,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/1" E:/Quartus/ex04/1/ex_4_1.v 
+# -- Compiling module ex_4_1
+# 
+# Top level modules:
+# 	ex_4_1
+# End time: 08:55:48 on Sep 28,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/1/simulation/modelsim {E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 08:55:48 on Sep 28,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex04/1/simulation/modelsim" E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt 
+# -- Compiling module ex_4_1_vlg_tst
+# 
+# Top level modules:
+# 	ex_4_1_vlg_tst
+# End time: 08:55:48 on Sep 28,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ex_4_1_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ex_4_1_vlg_tst 
+# Start time: 08:55:48 on Sep 28,2020
+# Loading work.ex_4_1_vlg_tst
+# Loading work.ex_4_1
+# Loading work.nonblocing_assign
+# ** Warning: (vsim-3017) E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt(40): [TFMPC] - Too few port connections. Expected 6, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /ex_4_1_vlg_tst/i1 File: E:/Quartus/ex04/1/ex_4_1.v
+# ** Warning: (vsim-3722) E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt(40): [TFMPC] - Missing connection for port 'CLOCK2_50'.
+# ** Warning: (vsim-3722) E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt(40): [TFMPC] - Missing connection for port 'CLOCK3_50'.
+# ** Warning: (vsim-3722) E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt(40): [TFMPC] - Missing connection for port 'CLOCK4_50'.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $stop    : E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt(81)
+#    Time: 98 ns  Iteration: 0  Instance: /ex_4_1_vlg_tst
+# Break in Module ex_4_1_vlg_tst at E:/Quartus/ex04/1/simulation/modelsim/ex_4_1.vt line 81
+# End time: 08:59:56 on Sep 28,2020, Elapsed time: 0:04:08
+# Errors: 0, Warnings: 4

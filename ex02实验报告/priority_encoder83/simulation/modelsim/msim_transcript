@@ -1,0 +1,74 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do priority_encoder83_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83 {E:/Quartus/ex02/priority_encoder83/hex15.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:19:01 on Sep 22,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex02/priority_encoder83" E:/Quartus/ex02/priority_encoder83/hex15.v 
+# -- Compiling module hex15
+# 
+# Top level modules:
+# 	hex15
+# End time: 21:19:01 on Sep 22,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83 {E:/Quartus/ex02/priority_encoder83/pri_encoder83.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:19:01 on Sep 22,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex02/priority_encoder83" E:/Quartus/ex02/priority_encoder83/pri_encoder83.v 
+# -- Compiling module pri_encoder83
+# 
+# Top level modules:
+# 	pri_encoder83
+# End time: 21:19:01 on Sep 22,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83 {E:/Quartus/ex02/priority_encoder83/priority_encoder83.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:19:01 on Sep 22,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex02/priority_encoder83" E:/Quartus/ex02/priority_encoder83/priority_encoder83.v 
+# -- Compiling module priority_encoder83
+# 
+# Top level modules:
+# 	priority_encoder83
+# End time: 21:19:01 on Sep 22,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex02/priority_encoder83/simulation/modelsim {E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:19:01 on Sep 22,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex02/priority_encoder83/simulation/modelsim" E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt 
+# -- Compiling module priority_encoder83_vlg_tst
+# 
+# Top level modules:
+# 	priority_encoder83_vlg_tst
+# End time: 21:19:01 on Sep 22,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  priority_encoder83_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" priority_encoder83_vlg_tst 
+# Start time: 21:19:02 on Sep 22,2020
+# Loading work.priority_encoder83_vlg_tst
+# Loading work.priority_encoder83
+# Loading work.pri_encoder83
+# Loading work.hex15
+# ** Warning: (vsim-3015) E:/Quartus/ex02/priority_encoder83/simulation/modelsim/priority_encoder83.vt(39): [PCDPC] - Port size (5) does not match connection size (4) for port 'LEDR'. The port definition is at: E:/Quartus/ex02/priority_encoder83/priority_encoder83.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /priority_encoder83_vlg_tst/i1 File: E:/Quartus/ex02/priority_encoder83/priority_encoder83.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Running testbench
+# Can't move the Now cursor.
+# End time: 21:23:36 on Sep 22,2020, Elapsed time: 0:04:34
+# Errors: 1, Warnings: 1

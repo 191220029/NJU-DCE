@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at lfsr8.v(19): object "HEX1" differs only in case from object "hex1" in the same scope File: E:/Quartus/ex06/LFSR8/lfsr8.v Line: 19
+Info (10281): Verilog HDL Declaration information at lfsr8.v(20): object "HEX2" differs only in case from object "hex2" in the same scope File: E:/Quartus/ex06/LFSR8/lfsr8.v Line: 20

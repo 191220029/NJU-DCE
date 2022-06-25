@@ -1,0 +1,62 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do exp01_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/exp01 {E:/Quartus/exp01/mux24.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:35:29 on Sep 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/exp01" E:/Quartus/exp01/mux24.v 
+# -- Compiling module mux24
+# 
+# Top level modules:
+# 	mux24
+# End time: 15:35:29 on Sep 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/exp01 {E:/Quartus/exp01/exp01.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:35:29 on Sep 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/exp01" E:/Quartus/exp01/exp01.v 
+# -- Compiling module exp01
+# 
+# Top level modules:
+# 	exp01
+# End time: 15:35:29 on Sep 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/exp01/simulation/modelsim {E:/Quartus/exp01/simulation/modelsim/exp01.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:35:29 on Sep 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/exp01/simulation/modelsim" E:/Quartus/exp01/simulation/modelsim/exp01.vt 
+# -- Compiling module exp01_vlg_tst
+# 
+# Top level modules:
+# 	exp01_vlg_tst
+# End time: 15:35:29 on Sep 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  exp01_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" exp01_vlg_tst 
+# Start time: 15:35:30 on Sep 16,2020
+# Loading work.exp01_vlg_tst
+# Loading work.exp01
+# Loading work.mux24
+# ** Warning: (vsim-3015) E:/Quartus/exp01/simulation/modelsim/exp01.vt(38): [PCDPC] - Port size (2) does not match connection size (10) for port 'LEDR'. The port definition is at: E:/Quartus/exp01/exp01.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /exp01_vlg_tst/i1 File: E:/Quartus/exp01/exp01.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Running testbench
+# End time: 15:37:31 on Sep 16,2020, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 1

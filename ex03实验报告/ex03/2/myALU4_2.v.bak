@@ -1,0 +1,40 @@
+module ALU4_2(ctrl, A, B, Y, CF, OF);
+	input [2:0]ctrl;
+	input [3:0]A;
+	input [3:0]B;
+	output reg [3:0]Y;
+	output reg CF;
+	output reg OF;
+	
+	always @(*) begin
+		CF = 0; OF = 0;
+		case(Y)
+			0:begin	//加法
+				{CF, Y} = A + B;
+				OF = (A[3] == B[3]) && (Y[3] != A[3]);
+			end
+			1:begin	//减法
+				{CF, Y} = A - B;
+				OF = (A[3] != B[3]) && (Y[3] != A[3])
+			end
+			2:begin	//取反
+				Y = ~A;
+			end
+			3:begin	//与
+				Y = A & B;
+			end
+			4:begin	//或
+				Y = A | B;
+			end
+			5:begin	//异或
+				Y = A ^ B;
+			end
+			6:begin	//比较大小
+				Y = A > B;
+			end
+			7:begin	//判断相等
+				Y = (A == B);
+			end
+	end
+	
+endmodule 

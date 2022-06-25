@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/exp01/simulation/modelsim
+vexp01
+Z1 !s110 1600241729
+!i10b 1
+!s100 EP5>bQ9E3f9WL28JXU:gf2
+IUJ=jE<YLXQmPcSDn]X<^82
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1600236598
+8E:/Quartus/exp01/exp01.v
+FE:/Quartus/exp01/exp01.v
+L0 6
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1600241729.000000
+!s107 E:/Quartus/exp01/exp01.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/exp01|E:/Quartus/exp01/exp01.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/exp01
+Z7 tCvgOpt 0
+vexp01_vlg_tst
+R1
+!i10b 1
+!s100 57Rk<G:daek6MhT3J=9AH1
+IXeLQFE^YH[g@j][O3d:f_0
+R2
+R0
+w1600239217
+8E:/Quartus/exp01/simulation/modelsim/exp01.vt
+FE:/Quartus/exp01/simulation/modelsim/exp01.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/exp01/simulation/modelsim/exp01.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/exp01/simulation/modelsim|E:/Quartus/exp01/simulation/modelsim/exp01.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/exp01/simulation/modelsim
+R7
+vmux24
+R1
+!i10b 1
+!s100 eSOY:LzzL[9^V@=0?C]<10
+IYco;eN[hW@E<0<O`C61dF2
+R2
+R0
+w1599656938
+8E:/Quartus/exp01/mux24.v
+FE:/Quartus/exp01/mux24.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/exp01/mux24.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/exp01|E:/Quartus/exp01/mux24.v|
+!i113 1
+R5
+R6
+R7

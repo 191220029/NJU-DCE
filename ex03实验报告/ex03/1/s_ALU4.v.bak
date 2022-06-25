@@ -1,0 +1,9 @@
+module s_ALU4(ctrl, A, B, C, out_c, overflow, isZero);
+	input ctrl;
+	input [3:0]A;
+	input [3:0]B;
+	output reg [3:0]C;
+	output reg overflow;
+	output reg isZero;
+
+endmodule 

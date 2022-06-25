@@ -1,0 +1,13 @@
+module pri_encoder83(x, y, h);
+	input [7:0]x;
+	output [2:0]y;
+	output h;
+	integer i;
+	
+	always @(x) begin
+		y = 0; h = 0;
+		for(i = 0; i <= 7; i = i + 1)
+			if(x[i] == 1) y = i;	
+	end
+
+endmodule 

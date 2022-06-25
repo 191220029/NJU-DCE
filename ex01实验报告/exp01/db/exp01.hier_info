@@ -1,0 +1,32 @@
+|exp01
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+SW[9] => SW[9].IN1
+LEDR[0] << mux24:mux24_1.port2
+LEDR[1] << mux24:mux24_1.port2
+
+
+|exp01|mux24:mux24_1
+X[0] => Mux1.IN3
+X[1] => Mux0.IN3
+X[2] => Mux1.IN2
+X[3] => Mux0.IN2
+X[4] => Mux1.IN1
+X[5] => Mux0.IN1
+X[6] => Mux1.IN0
+X[7] => Mux0.IN0
+Y[0] => Mux0.IN5
+Y[0] => Mux1.IN5
+Y[1] => Mux0.IN4
+Y[1] => Mux1.IN4
+F[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

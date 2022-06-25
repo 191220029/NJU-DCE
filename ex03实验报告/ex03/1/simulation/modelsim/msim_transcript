@@ -1,0 +1,77 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do ALU4_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex03/ALU4 {E:/Quartus/ex03/ALU4/s_ALU4.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:19 on Sep 29,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex03/ALU4" E:/Quartus/ex03/ALU4/s_ALU4.v 
+# -- Compiling module s_ALU4
+# 
+# Top level modules:
+# 	s_ALU4
+# End time: 20:46:19 on Sep 29,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex03/ALU4 {E:/Quartus/ex03/ALU4/alu4.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:19 on Sep 29,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex03/ALU4" E:/Quartus/ex03/ALU4/alu4.v 
+# -- Compiling module ALU4
+# 
+# Top level modules:
+# 	ALU4
+# End time: 20:46:19 on Sep 29,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus/ex03/ALU4/simulation/modelsim {E:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:46:20 on Sep 29,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus/ex03/ALU4/simulation/modelsim" E:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt 
+# -- Compiling module ALU4_vlg_tst
+# 
+# Top level modules:
+# 	ALU4_vlg_tst
+# End time: 20:46:20 on Sep 29,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ALU4_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ALU4_vlg_tst 
+# Start time: 20:46:20 on Sep 29,2020
+# Loading work.ALU4_vlg_tst
+# Loading work.ALU4
+# Loading work.s_ALU4
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ctrl = 0, a = 0, b = 0, c = 0, CF = 0, ZF = 0, OF = 0
+# ctrl = 0, a = 0, b = 0, c = 0, CF = 0, ZF = 0, OF = 0
+# c is wrong. std_c = 1
+# CF is wrong. std_CF = 1
+# OF is wrong. std_OF = 1
+# ZF is wrong. std_ZF = 1
+# Check starts here
+# **********************************
+# Plus test:
+# ctrl = 0, a = 1, b = 1, c = 2, CF = 0, ZF = 0, OF = 0
+# ctrl = 0, a = 4, b = 5, c = 9, CF = 0, ZF = 0, OF = 1
+# ctrl = 0, a = 1, b = f, c = 0, CF = 1, ZF = 1, OF = 0
+# Minus test:
+# ctrl = 1, a = 4, b = 5, c = f, CF = 0, ZF = 0, OF = 0
+# ctrl = 1, a = 7, b = 6, c = 1, CF = 1, ZF = 0, OF = 0
+# ctrl = 1, a = 6, b = c, c = a, CF = 0, ZF = 0, OF = 1
+# Check is over.
+# **********************************
+# End time: 20:49:11 on Sep 29,2020, Elapsed time: 0:02:51
+# Errors: 0, Warnings: 0

@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at myALU4_2.v(3): object "A" differs only in case from object "a" in the same scope File: E:/Quartus/ex03/ALU4_2/myALU4_2.v Line: 3
+Info (10281): Verilog HDL Declaration information at myALU4_2.v(4): object "B" differs only in case from object "b" in the same scope File: E:/Quartus/ex03/ALU4_2/myALU4_2.v Line: 4

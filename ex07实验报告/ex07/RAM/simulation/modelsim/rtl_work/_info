@@ -1,0 +1,122 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex07/RAM/simulation/modelsim
+vexp07
+Z1 !s110 1603113773
+!i10b 1
+!s100 z2=hKcGDaKiLWa@[AZNnY0
+Ia279`MfZSeeX]4SJAj7bE2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1603098559
+8E:/Quartus/ex07/RAM/exp07.v
+FE:/Quartus/ex07/RAM/exp07.v
+L0 6
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1603113773.000000
+!s107 E:/Quartus/ex07/RAM/exp07.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex07/RAM|E:/Quartus/ex07/RAM/exp07.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM
+Z7 tCvgOpt 0
+vexp07_vlg_tst
+R1
+!i10b 1
+!s100 RkUdGmB;UgEAH9@9l5:=n3
+IJZ7<ea<BbbBS2GlFBgC_C1
+R2
+R0
+w1603099859
+8E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt
+FE:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex07/RAM/simulation/modelsim|E:/Quartus/ex07/RAM/simulation/modelsim/exp07.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex07/RAM/simulation/modelsim
+R7
+vhex15
+Z8 !s110 1603113771
+!i10b 1
+!s100 bA0;2LGJdhzj;QmfklXJX2
+IcjV4OeY3GH??T?b3bYbZ_2
+R2
+R0
+w1602484422
+8E:/Quartus/ex07/RAM/hex15.v
+FE:/Quartus/ex07/RAM/hex15.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z9 !s108 1603113771.000000
+!s107 E:/Quartus/ex07/RAM/hex15.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex07/RAM|E:/Quartus/ex07/RAM/hex15.v|
+!i113 1
+R5
+R6
+R7
+vRAM1
+R1
+!i10b 1
+!s100 E2ojndCI_jbgYHYOVH::L1
+I3<oL2We32?QoVKd<aN_R>2
+R2
+R0
+w1603090187
+8E:/Quartus/ex07/RAM/RAM1.v
+FE:/Quartus/ex07/RAM/RAM1.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex07/RAM/RAM1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex07/RAM|E:/Quartus/ex07/RAM/RAM1.v|
+!i113 1
+R5
+R6
+R7
+n@r@a@m1
+vRAM2
+R8
+!i10b 1
+!s100 a5Zk:ccCm8C_g[zMbd[1X1
+IG3eIb36H6PEdAf_=Aoj;_0
+R2
+R0
+w1602901062
+8E:/Quartus/ex07/RAM/RAM2.v
+FE:/Quartus/ex07/RAM/RAM2.v
+L0 39
+R3
+r1
+!s85 0
+31
+R9
+!s107 E:/Quartus/ex07/RAM/RAM2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex07/RAM|E:/Quartus/ex07/RAM/RAM2.v|
+!i113 1
+R5
+R6
+R7
+n@r@a@m2

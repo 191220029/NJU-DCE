@@ -1,0 +1,175 @@
+`include "macro.v"
+
+module io_manager(clk, in_clk, kb_check_clk, input_valid, kb_input, scan_h, scan_v, result, result_len, ok, vga_data, buff, buff_len, line_finish);
+    input clk, in_clk, kb_check_clk;
+
+    input input_valid;
+    input [7:0] kb_input;
+    
+    input [1023:0] result;
+    input [7:0] result_len;
+    input ok;
+
+    input [9:0] scan_h, scan_v;
+
+    output reg [511:0] buff;
+    output reg [63:0] buff_len;
+    output [23:0] vga_data;
+    output reg line_finish;
+
+    reg [1023:0] kb_buff; // 1024 / 8 = 128
+    reg [7:0] kb_pre_input;
+    reg [31:0] kb_same_cnt;
+    reg [9:0] kb_buff_front, kb_buff_rear;
+
+    reg [7:0] ascii_in;
+    reg en;
+
+initial
+begin
+    kb_same_cnt = 0;
+    kb_buff_rear = 10'd0;
+    kb_buff_front = 10'd0;
+    buff = 1024'd0;
+    buff_len = 64'd0;
+    ascii_in = 8'd0;
+    en = 1'b0;
+end
+    always @(posedge kb_check_clk)
+    begin
+        if(input_valid) begin
+            if(kb_input == kb_pre_input && kb_same_cnt < 100) begin
+                kb_same_cnt <= kb_same_cnt + 1;
+            end
+            else begin
+                if(kb_input != kb_pre_input) begin
+                    kb_same_cnt <= 0;
+                    kb_pre_input <= kb_input;
+                    kb_buff[kb_buff_rear+:8] <= kb_input;
+                    kb_buff_rear <= kb_buff_rear + 10'd8;
+                end
+                else begin
+                    if(kb_same_cnt[1:0] == 2'd0) begin
+                        kb_pre_input <= kb_input;
+                        kb_buff[kb_buff_rear+:8] <= kb_input;
+                        kb_buff_rear <= kb_buff_rear + 10'd8;
+                    end
+                    kb_same_cnt <= kb_same_cnt + 1;
+                end
+            end
+        end
+        else begin
+            kb_same_cnt <= 0;
+            kb_pre_input <= 8'd0;
+        end
+    end
+
+
+    reg [2:0] state;
+    reg [1023:0] state_result;
+    reg [7:0] state_result_len, state_result_p;
+
+    
+initial
+begin
+    state = `READ;
+    state_result_len = 8'd0;
+    state_result_p = 8'd0;
+    line_finish = 1'b0;
+end
+
+    wire [7:0] cur_kb_ascii;
+    wire [7:0] cur_high_out_ascii;
+    wire [7:0] cur_low_out_ascii;
+    reg h_l;
+    assign cur_kb_ascii = kb_buff[kb_buff_front+:8];
+
+initial
+begin
+    h_l = 1'b0;
+end
+
+    tohex gethex(.indata(state_result[{state_result_p[6:0], 3'd0} +: 4]), .outdata(cur_low_out_ascii)); // convert output to it's hex representation
+    tohex gethighhex(.indata(state_result[{state_result_p[6:0], 3'd0}+4 +: 4]), .outdata(cur_high_out_ascii));
+    
+    always @(negedge in_clk)
+    begin
+        case(state)
+        `READ: begin
+            if(kb_buff_front != kb_buff_rear) begin
+                ascii_in <= cur_kb_ascii;
+                kb_buff_front <= kb_buff_front + 10'd8;
+                if(cur_kb_ascii == `ENTER) begin
+                    line_finish <= 1'b1;
+                    state <= `WAIT;
+                    en <= 1'b1;
+                end
+                else if(cur_kb_ascii == `BACKSPACE) begin
+                    if(buff_len[8:0] != 9'd0) begin
+                        buff[buff_len[8:0]-9'd8+:8] <= `BLANK;
+                        buff_len <= buff_len - 64'd8;
+                        en <= 1'b1;
+                    end
+                    else begin
+                        en <= 1'b0;
+                    end
+                end
+                else begin
+                    if(buff_len[8:0] == 9'd0) begin
+                        buff <= 512'd0;
+                    end
+                    buff[buff_len[8:0]+:8] <= cur_kb_ascii;
+                    buff_len <= buff_len + 64'd8;
+                    en <= 1'b1;
+                end
+            end
+            else begin
+                en <= 1'b0;
+            end
+        end
+        `WAIT: begin
+            if(ok) begin
+                state_result <= result;
+                h_l <= 1'b0;
+                state <= `RESPONSE;
+                state_result_len <= result_len;
+            end
+            else begin
+                state_result <= result;
+                state_result_len <= result_len;
+                state <= `WAIT;
+            end
+            state_result_p <= 8'd0;
+            line_finish <= 1'b0;
+            en <= 1'b0;
+        end
+        `RESPONSE: begin
+            if(state_result_p != state_result_len) begin
+                en <= 1'b1;
+                if(h_l == 1'b0) begin
+                    ascii_in <= cur_high_out_ascii;
+                    state_result_p <= state_result_p;
+                end
+                else begin
+                    ascii_in <= cur_low_out_ascii;
+                    state_result_p <= state_result_p + 8'd1;
+                end
+                h_l <= h_l + 1'b1;
+                state <= `RESPONSE;
+            end
+            else begin
+                en <= 1'b1;
+                ascii_in <= `ENTER;
+                state <= `READ;
+                state_result_p <= 8'd0;
+                buff <= 1024'd0;
+                buff_len <= 64'd0;
+            end
+        end
+        endcase
+    end
+
+    picture ppp(.clk(clk), .in_clk(in_clk), .en(en), .ascii_in(ascii_in), .scan_h(scan_h), .scan_v(scan_v), .vga_data(vga_data),
+                            .state(state));
+
+endmodule

@@ -1,0 +1,6 @@
+Info (10281): Verilog HDL Declaration information at exp07.v(21): object "HEX0" differs only in case from object "hex0" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 21
+Info (10281): Verilog HDL Declaration information at exp07.v(22): object "HEX1" differs only in case from object "hex1" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 22
+Info (10281): Verilog HDL Declaration information at exp07.v(23): object "HEX2" differs only in case from object "hex2" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 23
+Info (10281): Verilog HDL Declaration information at exp07.v(24): object "HEX3" differs only in case from object "hex3" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 24
+Info (10281): Verilog HDL Declaration information at exp07.v(25): object "HEX4" differs only in case from object "hex4" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 25
+Info (10281): Verilog HDL Declaration information at exp07.v(27): object "HEX5" differs only in case from object "hex5" in the same scope File: E:/Quartus/ex07/RAM/exp07.v Line: 27

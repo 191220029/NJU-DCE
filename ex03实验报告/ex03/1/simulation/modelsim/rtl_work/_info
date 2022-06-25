@@ -1,0 +1,79 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex03/ALU4/simulation/modelsim
+vALU4
+Z1 !s110 1601383579
+!i10b 1
+!s100 5LB`JXl2lG_nb9>9U<^A[2
+IdoAfCEN5jljmKj0IfgnjJ0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1599995374
+8E:/Quartus/ex03/ALU4/alu4.v
+FE:/Quartus/ex03/ALU4/alu4.v
+L0 6
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1601383579.000000
+!s107 E:/Quartus/ex03/ALU4/alu4.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex03/ALU4|E:/Quartus/ex03/ALU4/alu4.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex03/ALU4
+Z7 tCvgOpt 0
+n@a@l@u4
+vALU4_vlg_tst
+!s110 1601383580
+!i10b 1
+!s100 A9eTT;Y2Ojc]nk@`=K7Y_1
+Iz4Xl8e9RPGzg`VTDYJVn_3
+R2
+R0
+w1601276949
+8E:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt
+FE:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt
+L0 31
+R3
+r1
+!s85 0
+31
+!s108 1601383580.000000
+!s107 E:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex03/ALU4/simulation/modelsim|E:/Quartus/ex03/ALU4/simulation/modelsim/ALU4.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex03/ALU4/simulation/modelsim
+R7
+n@a@l@u4_vlg_tst
+vs_ALU4
+R1
+!i10b 1
+!s100 96ceBQUHhQM^bLDFC18EV0
+I@^0QbEU?^@3:^WTKH]=<`0
+R2
+R0
+w1601340659
+8E:/Quartus/ex03/ALU4/s_ALU4.v
+FE:/Quartus/ex03/ALU4/s_ALU4.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex03/ALU4/s_ALU4.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex03/ALU4|E:/Quartus/ex03/ALU4/s_ALU4.v|
+!i113 1
+R5
+R6
+R7
+ns_@a@l@u4

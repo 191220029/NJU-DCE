@@ -1,0 +1,120 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex05/ex05_1/simulation/modelsim
+vclock_1
+Z1 !s110 1602240662
+!i10b 1
+!s100 g@l<nF`E`bfHZgHlEK]NY1
+INF1ch4f3m?`4W@f<K3J?e0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1601277686
+8E:/Quartus/ex05/ex05_1/clock_1.v
+FE:/Quartus/ex05/ex05_1/clock_1.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1602240662.000000
+!s107 E:/Quartus/ex05/ex05_1/clock_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex05/ex05_1|E:/Quartus/ex05/ex05_1/clock_1.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex05/ex05_1
+Z7 tCvgOpt 0
+vcounter_mod100
+R1
+!i10b 1
+!s100 :z8[zM0DL:hcXKj85e_CX0
+I>dam;Z4RYig`b6>=[aG:D3
+R2
+R0
+w1602207754
+8E:/Quartus/ex05/ex05_1/counter_mod100.v
+FE:/Quartus/ex05/ex05_1/counter_mod100.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex05/ex05_1/counter_mod100.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex05/ex05_1|E:/Quartus/ex05/ex05_1/counter_mod100.v|
+!i113 1
+R5
+R6
+R7
+vex05_1
+R1
+!i10b 1
+!s100 FSTV21daYVOnlZFYEWzCU3
+Ic4c_TzBdh=6KS?_mcQW5E3
+R2
+R0
+w1602233485
+8E:/Quartus/ex05/ex05_1/ex05_1.v
+FE:/Quartus/ex05/ex05_1/ex05_1.v
+L0 6
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex05/ex05_1/ex05_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex05/ex05_1|E:/Quartus/ex05/ex05_1/ex05_1.v|
+!i113 1
+R5
+R6
+R7
+vex05_1_vlg_tst
+R1
+!i10b 1
+!s100 hH8>7T3WzNJ=0o7E1mdSV1
+I]V8YGjA]d5m9n25C9JalP3
+R2
+R0
+w1602240648
+8E:/Quartus/ex05/ex05_1/simulation/modelsim/ex05_1.vt
+FE:/Quartus/ex05/ex05_1/simulation/modelsim/ex05_1.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex05/ex05_1/simulation/modelsim/ex05_1.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex05/ex05_1/simulation/modelsim|E:/Quartus/ex05/ex05_1/simulation/modelsim/ex05_1.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex05/ex05_1/simulation/modelsim
+R7
+vhex15
+R1
+!i10b 1
+!s100 bA0;2LGJdhzj;QmfklXJX2
+IbP?VMgG5Sa;[8giY7UEQC0
+R2
+R0
+w1601275223
+8E:/Quartus/ex05/ex05_1/hex15.v
+FE:/Quartus/ex05/ex05_1/hex15.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1602240661.000000
+!s107 E:/Quartus/ex05/ex05_1/hex15.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex05/ex05_1|E:/Quartus/ex05/ex05_1/hex15.v|
+!i113 1
+R5
+R6
+R7

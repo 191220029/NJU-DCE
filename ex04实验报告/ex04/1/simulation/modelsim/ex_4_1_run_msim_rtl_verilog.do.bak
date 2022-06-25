@@ -1,0 +1,10 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/1 {E:/Quartus/ex04/1/nonblocing_assign.v}
+vlog -vlog01compat -work work +incdir+E:/Quartus/ex04/1 {E:/Quartus/ex04/1/ex_4_1.v}
+

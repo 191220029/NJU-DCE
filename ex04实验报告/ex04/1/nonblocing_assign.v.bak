@@ -1,0 +1,12 @@
+module nonblocing_assign(data, clk, en, out_unlock1, out_unlock2);
+	if(in_en)
+		begin
+			out_unlock1 <= in_data;
+			out_unlock2 <= out_unlock1;
+		end
+	else
+		begin
+			out_unlock1 <= out_unlock1;
+			out_unlock2 <= out_unlock2;
+		end
+endmodule 

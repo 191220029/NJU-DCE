@@ -1,0 +1,163 @@
+module toAscii(prefix, up, code, ascii);
+    input prefix, up;
+    input [7:0] code;
+    output reg [7:0] ascii;
+
+    parameter NO_SHOW = 8'd0;
+    reg [7:0] no_l, no_h;
+
+	 
+	/* 
+reg [7:0] asc[255:0];
+reg [7:0] shi[255:0];
+initial
+begin
+	 //$readmemh("F:/quartus/keyboard/ascii.txt", asc, 0, 255); 
+	 $readmemh ("ascii.txt", asc, 0, 255);
+	 $readmemh ("shift.txt", shi, 0, 255);	 
+end
+	*/ 
+	 
+	 
+    always @* begin
+        if(prefix == 1'b0)
+            ascii = up ? no_h : no_l;
+        else begin
+            case(code)
+            8'h75: ascii = 8'd24; // up 
+            8'h72: ascii = 8'd25; // down
+            8'h6b: ascii = 8'd27; // left
+            8'h74: ascii = 8'd26; // right
+            default: ascii = NO_SHOW;
+            endcase
+        end
+    end
+
+	 
+	/* always @*
+begin
+   if (code != 8'hff && code != 8'h00)begin
+	no_l = asc[code];
+	no_h = shi[code];
+	end
+	else begin
+	no_l = 8'h00;
+	no_h = 8'h00;
+	end
+end */
+
+
+    always @* begin
+        case(code)
+            //alphabet
+            8'h1c:  no_l = 8'd97;
+            8'h32:  no_l = 8'd98;
+            8'h21:  no_l = 8'd99;
+            8'h23:  no_l = 8'd100;
+            8'h24:  no_l = 8'd101;
+            8'h2b:  no_l = 8'd102;
+            8'h34:  no_l = 8'd103;
+            8'h33:  no_l = 8'd104;
+            8'h43:  no_l = 8'd105;
+            8'h3b:  no_l = 8'd106;
+            8'h42:  no_l = 8'd107;
+            8'h4b:  no_l = 8'd108;
+            8'h3a:  no_l = 8'd109;
+            8'h31:  no_l = 8'd110;
+            8'h44:  no_l = 8'd111;
+            8'h4d:  no_l = 8'd112;
+            8'h15:  no_l = 8'd113;
+            8'h2d:  no_l = 8'd114;
+            8'h1b:  no_l = 8'd115;
+            8'h2c:  no_l = 8'd116;
+            8'h3c:  no_l = 8'd117;
+            8'h2a:  no_l = 8'd118;
+            8'h1d:  no_l = 8'd119;
+            8'h22:  no_l = 8'd120;
+            8'h35:  no_l = 8'd121;
+            8'h1a:  no_l = 8'd122;
+            //number from 0 to 9
+            8'h45:  no_l = 8'd48;
+            8'h16:  no_l = 8'd49;
+            8'h1e:  no_l = 8'd50;
+            8'h26:  no_l = 8'd51;
+            8'h25:  no_l = 8'd52;
+            8'h2e:  no_l = 8'd53;
+            8'h36:  no_l = 8'd54;
+            8'h3d:  no_l = 8'd55;
+            8'h3e:  no_l = 8'd56;
+            8'h46:  no_l = 8'd57;
+            8'h29:  no_l = 8'd32; // empty space
+            8'h66:  no_l = 8'd8; //backspace
+            8'h5a:  no_l = 8'd13; //enter
+            8'h0d:  no_l = 8'd9; // tab
+            8'h76:  no_l = 8'd200; // esc
+            8'h54:  no_l = 8'd91; // [
+            8'h5b:  no_l = 8'd93; // ]
+            8'h4c:  no_l = 8'd59; // ;
+            8'h52:  no_l = 8'd39; // '
+             //copy from scan_code 
+            8'h41:  no_l = 8'h2c; // ,
+            8'h49:  no_l = 8'h2e; // .
+            8'h4a:  no_l = 8'h2f; // /
+            8'h55:  no_l = 8'h3d;// =
+            8'h4e:  no_l = 8'h2d;// -
+            8'h5d:  no_l = 8'h5c;// \ 
+            8'h0e:  no_l = 8'h60; // `
+            default: no_l = NO_SHOW;
+        endcase
+    end
+
+    always @* begin
+        case(code)
+            8'h1c:  no_h = 8'd65;
+            8'h32:  no_h = 8'd66;
+            8'h21:  no_h = 8'd67;
+            8'h23:  no_h = 8'd68;
+            8'h24:  no_h = 8'd69;
+            8'h2b:  no_h = 8'd70;
+            8'h34:  no_h = 8'd71;
+            8'h33:  no_h = 8'd72;
+            8'h43:  no_h = 8'd73;
+            8'h3b:  no_h = 8'd74;
+            8'h42:  no_h = 8'd75;
+            8'h4b:  no_h = 8'd76;
+            8'h3a:  no_h = 8'd77;
+            8'h31:  no_h = 8'd78;
+            8'h44:  no_h = 8'd79;
+            8'h4d:  no_h = 8'd80;
+            8'h15:  no_h = 8'd81;
+            8'h2d:  no_h = 8'd82;
+            8'h1b:  no_h = 8'd83;
+            8'h2c:  no_h = 8'd84;
+            8'h3c:  no_h = 8'd85;
+            8'h2a:  no_h = 8'd86;
+            8'h1d:  no_h = 8'd87;
+            8'h22:  no_h = 8'd88;
+            8'h35:  no_h = 8'd89;
+            8'h1a:  no_h = 8'd90;
+            8'h16:  no_h = 8'd33;
+            8'h1e:  no_h = 8'd64;
+            8'h26:  no_h = 8'd35;
+            8'h25:  no_h = 8'd36;
+            8'h2e:  no_h = 8'd37;
+            8'h36:  no_h = 8'd94;
+            8'h3d:  no_h = 8'd38;
+            8'h3e:  no_h = 8'd42;
+            8'h46:  no_h = 8'd40;
+            8'h45:  no_h = 8'd41;
+            8'h54:  no_h = 8'd123; // {
+            8'h5b:  no_h = 8'd125; // }
+            8'h4c:  no_h = 8'd58;// :
+            8'h52:  no_h = 8'd34;// "
+            8'h41:  no_h = 8'd60;// <
+            8'h49:  no_h = 8'd62;// >
+            8'h4a:  no_h = 8'd63;// ?
+            8'h0e:  no_h = 8'd126;// ~
+            8'h5d:  no_h = 8'd124;// |
+            8'h55:  no_h = 8'd43; // +
+            8'h4e:  no_h = 8'd95; // _
+            default: no_h = NO_SHOW;
+    endcase
+end
+endmodule 

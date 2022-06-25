@@ -1,0 +1,34 @@
+|ex_4_1
+CLOCK2_50 => ~NO_FANOUT~
+CLOCK3_50 => ~NO_FANOUT~
+CLOCK4_50 => ~NO_FANOUT~
+CLOCK_50 => CLOCK_50.IN2
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN2
+LEDR[0] << nonblocing_assign:test1.port3
+LEDR[1] << nonblocing_assign:test1.port4
+LEDR[2] << blocing_assign:test2.port3
+LEDR[3] << blocing_assign:test2.port4
+
+
+|ex_4_1|nonblocing_assign:test1
+data => out_unlock1~reg0.DATAIN
+clk => out_unlock2~reg0.CLK
+clk => out_unlock1~reg0.CLK
+en => out_unlock2~reg0.ENA
+en => out_unlock1~reg0.ENA
+out_unlock1 <= out_unlock1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_unlock2 <= out_unlock2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ex_4_1|blocing_assign:test2
+data => out_lock2~reg0.DATAIN
+data => out_lock1~reg0.DATAIN
+clk => out_lock2~reg0.CLK
+clk => out_lock1~reg0.CLK
+en => out_lock2~reg0.ENA
+en => out_lock1~reg0.ENA
+out_lock1 <= out_lock1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_lock2 <= out_lock2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

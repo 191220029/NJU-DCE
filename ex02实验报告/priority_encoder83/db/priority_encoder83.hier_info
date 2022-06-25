@@ -1,0 +1,57 @@
+|priority_encoder83
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+LEDR[0] << pri_encoder83:m_pri_encoder.port3
+LEDR[1] << LEDR[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] << LEDR[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] << LEDR[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] << LEDR[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] << hex15:m_hex.port1
+HEX0[1] << hex15:m_hex.port1
+HEX0[2] << hex15:m_hex.port1
+HEX0[3] << hex15:m_hex.port1
+HEX0[4] << hex15:m_hex.port1
+HEX0[5] << hex15:m_hex.port1
+HEX0[6] << hex15:m_hex.port1
+
+
+|priority_encoder83|pri_encoder83:m_pri_encoder
+en => y.OUTPUTSELECT
+en => y.OUTPUTSELECT
+en => y.OUTPUTSELECT
+en => h.OUTPUTSELECT
+x[0] => Decoder0.IN7
+x[1] => Decoder0.IN6
+x[2] => Decoder0.IN5
+x[3] => Decoder0.IN4
+x[4] => Decoder0.IN3
+x[5] => Decoder0.IN2
+x[6] => Decoder0.IN1
+x[7] => Decoder0.IN0
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+h <= h.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|priority_encoder83|hex15:m_hex
+x[0] => Decoder0.IN3
+x[1] => Decoder0.IN2
+x[2] => Decoder0.IN1
+x[3] => Decoder0.IN0
+y[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

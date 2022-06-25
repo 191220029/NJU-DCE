@@ -1,0 +1,120 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "09/23/2020 21:05:51"
+                                                                                
+// Verilog Test Bench template for design : ALU4
+// 
+// Simulation tool : ModelSim (Verilog)
+// 
+
+
+
+
+`timescale 1 ps/ 1 ps
+module ALU4_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg [9:0] SW;
+// wires                                               
+wire [9:0]  LEDR;
+
+task ALU_check;
+	input ctrl;
+	input [3:0]a, b, c, std_c;						//测试结果和预期结果
+	input CF, std_CF, OF, std_OF, ZF, std_ZF;
+	
+	begin
+		$display("ctrl = %b, a = %h, b = %h, c = %h, CF = %b, ZF = %b, OF = %b", ctrl, a, b, c, CF, ZF, OF);
+		if(c != std_c)
+			$display("c is wrong. std_c = %h", std_c);
+		if(CF != std_CF)
+			$display("CF is wrong. std_CF = %b", std_CF);
+		if(OF != std_OF)
+			$display("OF is wrong. std_OF = %b", std_OF);
+		if(ZF != std_ZF)
+			$display("ZF is wrong. std_ZF = %b", std_ZF);
+		
+		
+	end
+endtask 
+// assign statements (if any)                          
+ALU4 i1 (
+// port map - connection between master ports and signals/registers   
+	.LEDR(LEDR),
+	.SW(SW)
+);
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin                          
+#20 ALU_check(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+#20 ALU_check(0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1);
+$display("Check starts here");
+$display("**********************************");
+
+//加法测试：
+$display("Plus test:");
+SW[9] = 0;
+			//1+1
+			SW[3:0] = 1;
+			SW[7:4] = 1;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 2, LEDR[7], 0, LEDR[8], 0, LEDR[9], 0);
+			//4+5 OF = 1
+			SW[3:0] = 4;
+			SW[7:4] = 5;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 9, LEDR[7], 0, LEDR[8], 1, LEDR[9], 0);
+			//1+(-1) ZF = 1; CF = 1
+			SW[3:0] = 1;
+			SW[7:4] = 4'b1111;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 0, LEDR[7], 1, LEDR[8], 0, LEDR[9], 1);
+
+//减法测试：
+$display("Minus test:");
+SW[9] = 1;
+			//4-5
+			SW[3:0] = 4;
+			SW[7:4] = 5;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 4'b1111, LEDR[7], 0, LEDR[8], 0, LEDR[9], 0);
+			//7-6 CF = 1;
+			SW[3:0] = 7;
+			SW[7:4] = 6;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 1, LEDR[7], 1, LEDR[8], 0, LEDR[9], 0);
+			//6-(-4) OF = 1;
+			SW[3:0] = 6;
+			SW[7:4] = 4'b1100;
+			#20 ALU_check(SW[9], SW[3:0], SW[7:4], LEDR[3:0], 10, LEDR[7], 0, LEDR[8], 1, LEDR[9], 0);
+// --> end                                             
+$display("Check is over."); 
+$display("**********************************");                      
+end                                                    
+//always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+//begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                 
+//@eachvec;                                              
+// --> end                                             
+//end                                                    
+endmodule
+

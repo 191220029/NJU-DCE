@@ -1,0 +1,88 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "09/14/2020 13:59:42"
+                                                                                
+// Verilog Test Bench template for design : exp01
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ns/ 1 ps
+module exp01_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg [9:0] SW;
+// wires                                               
+wire [9:0]  LEDR;
+
+// assign statements (if any)                          
+exp01 i1 (
+// port map - connection between master ports and signals/registers   
+	.LEDR(LEDR),
+	.SW(SW)
+);
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin
+//select **
+	SW=10'b1001110000; #10;
+	SW=10'b1001110001; #10;
+	SW=10'b1001110010; #10;
+	SW=10'b1001110011; #10;
+/*
+//select 00                          
+	SW=10'bzzzzzz0000; #10;
+	SW=10'bzzzzzz0100; #10;
+	SW=10'bzzzzzz1000; #10;
+	SW=10'bzzzzzz1100; #10;
+//select 01
+	SW=10'bzzzz00zz01; #10;
+	SW=10'bzzzz01zz01; #10;
+	SW=10'bzzzz10zz01; #10;
+	SW=10'bzzzz11zz01; #10;
+//select 10
+	SW=10'bzz00zzzz10; #10;
+	SW=10'bzz01zzzz10; #10;
+	SW=10'bzz10zzzz10; #10;
+	SW=10'bzz11zzzz10; #10;
+//select 11
+	SW=10'b00zzzzzz11; #10;
+	SW=10'b01zzzzzz11; #10;
+	SW=10'b10zzzzzz11; #10;
+	SW=10'b11zzzzzz11; #10;
+*/
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+//always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+//begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+//@eachvec;                                              
+// --> end                                             
+//end                                                    
+endmodule
+

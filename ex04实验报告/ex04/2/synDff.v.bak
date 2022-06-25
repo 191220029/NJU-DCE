@@ -1,0 +1,14 @@
+module synDff(en, D, clr_n, clk, Q);
+	input en;
+	input D, clr_n, clk; 
+	output reg Q;
+	
+	always @ (posedge clk or negedge clr_n) begin
+		if(en)
+			if(!clr_n) begin
+				Q <= D;
+			end
+			else Q <= 0;
+		else Q <= Q;
+	end
+endmodule 

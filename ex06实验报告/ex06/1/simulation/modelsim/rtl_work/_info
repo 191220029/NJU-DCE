@@ -1,0 +1,99 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Quartus/ex06/shift_register/simulation/modelsim
+vclock_1
+Z1 !s110 1602676138
+!i10b 1
+!s100 g@l<nF`E`bfHZgHlEK]NY1
+IiUY^o>8[la9=<4a]6H8Ah0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1601635649
+8E:/Quartus/ex06/shift_register/clock_1.v
+FE:/Quartus/ex06/shift_register/clock_1.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1602676138.000000
+!s107 E:/Quartus/ex06/shift_register/clock_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/shift_register|E:/Quartus/ex06/shift_register/clock_1.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+E:/Quartus/ex06/shift_register
+Z7 tCvgOpt 0
+vshift_register
+R1
+!i10b 1
+!s100 IcJLZ<7RV5WLWX0hF7g8g1
+IT3@9o`d4oQAabFTn4L^>b0
+R2
+R0
+w1602676037
+8E:/Quartus/ex06/shift_register/shift_register.v
+FE:/Quartus/ex06/shift_register/shift_register.v
+L0 6
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/shift_register/shift_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/shift_register|E:/Quartus/ex06/shift_register/shift_register.v|
+!i113 1
+R5
+R6
+R7
+vshift_register_vlg_tst
+R1
+!i10b 1
+!s100 AL`XgkFOBa2WX9]2O5mbf2
+I0XdUCXX1Lk4@Coa]SRfgV3
+R2
+R0
+w1602675521
+8E:/Quartus/ex06/shift_register/simulation/modelsim/shift_register.vt
+FE:/Quartus/ex06/shift_register/simulation/modelsim/shift_register.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 E:/Quartus/ex06/shift_register/simulation/modelsim/shift_register.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/shift_register/simulation/modelsim|E:/Quartus/ex06/shift_register/simulation/modelsim/shift_register.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+E:/Quartus/ex06/shift_register/simulation/modelsim
+R7
+vShiftReg
+!s110 1602676137
+!i10b 1
+!s100 9XdjS=>JN_M8_VdnUmmIc2
+ImPO0eo=o2Gd45GmOebM1a3
+R2
+R0
+w1602675496
+8E:/Quartus/ex06/shift_register/ShiftReg.v
+FE:/Quartus/ex06/shift_register/ShiftReg.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1602676137.000000
+!s107 E:/Quartus/ex06/shift_register/ShiftReg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Quartus/ex06/shift_register|E:/Quartus/ex06/shift_register/ShiftReg.v|
+!i113 1
+R5
+R6
+R7
+n@shift@reg
